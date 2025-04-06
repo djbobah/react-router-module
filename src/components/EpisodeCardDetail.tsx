@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Data from "../data/episode.json";
 
 import { EpisodeCardType } from "../types";

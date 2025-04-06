@@ -1,5 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { LocalDate } from "../utils";
+import { useNavigate, useParams } from "react-router-dom";
 import Data from "../data/location.json";
 
 import { LocationCardType } from "../types";
