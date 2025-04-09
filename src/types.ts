@@ -1,3 +1,5 @@
+import { FormEvent } from "react";
+
 export type LocationCardType = {
   id: number;
   name: string;
@@ -28,4 +30,38 @@ export type CharactersCardType = {
 export type ListItemProps = {
   path: string;
   card: LocationCardType | EpisodeCardType | CharactersCardType;
+};
+
+export interface Settings {
+  placeholder?: string;
+  label?: string;
+  description?: string;
+  error?: string;
+  variant?: string;
+  disabled?: boolean;
+  radius?: number;
+  withIcon?: boolean;
+  size?: number;
+  withAsterisk?: boolean;
+  checked?: boolean;
+  value: string;
+}
+
+export type FormPropsType = {
+  handleSubmit: (e: FormEvent<HTMLFormElement>, data: DataSigninType) => void;
+};
+
+export type DataSigninType = {
+  email: string;
+  password: string;
+};
+
+export type UserType = {
+  email: string;
+  password: string;
+};
+
+export type SignInProps = {
+  newUser: UserType;
+  callback: () => void;
 };
