@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { ListItem } from "../components/ListItem";
 import { SortControl } from "../components/SortControl";
 import Data from "../data/characters.json";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { CharactersCardType } from "../types";
 
 export const Characters = () => {
   const [sort, setSort] = useState<"asc" | "desc">("asc");
   const [sortedData, setSortedData] = useState<CharactersCardType[]>(Data);
-  const params = useParams();
+  const { search } = useLocation();
+
   useEffect(() => {
     sort === "asc"
       ? setSortedData(
@@ -33,7 +34,7 @@ export const Characters = () => {
             return 0;
           })
         );
-  }, [params]);
+  }, [search]);
   return (
     <>
       <h1>Персонажи</h1>
