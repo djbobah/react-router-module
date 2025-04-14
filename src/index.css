@@ -61,7 +61,7 @@ body {
 
 .list-item {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 30px 1fr 1fr;
   border: 1px solid lightgrey;
   margin: 10px 20px;
   border-radius: 5px;

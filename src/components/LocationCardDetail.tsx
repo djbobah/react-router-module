@@ -1,11 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
-import Data from "../data/location.json";
-
 import { LocationCardType } from "../types";
 import { useEffect, useState } from "react";
+import { useData } from "../context/DataProvider";
 
 export const LocationCardDetail = () => {
+  const { locations } = useData();
   const [card, setCard] = useState<LocationCardType>();
+
   const navigate = useNavigate();
   const params = useParams();
 
@@ -14,7 +15,8 @@ export const LocationCardDetail = () => {
   };
 
   useEffect(() => {
-    setCard(Data.filter((card) => card.id === Number(params.id))[0]);
+    locations &&
+      setCard(locations.filter((card) => card.id === Number(params.id))[0]);
   }, []);
 
   return (

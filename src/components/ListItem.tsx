@@ -3,9 +3,10 @@ import { LocalDate } from "../utils";
 import { ListItemProps } from "../types";
 
 export const ListItem = (props: ListItemProps) => {
-  const { path, card } = props;
+  const { path, num, card, ref } = props;
   return (
-    <Link to={path} className="list-item">
+    <Link ref={ref} to={path} className="list-item">
+      {num}
       <span>{card.name}</span>
       <span>{LocalDate(card.created)}</span>
     </Link>

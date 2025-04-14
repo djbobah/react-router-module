@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent, ReactNode } from "react";
 
 export type LocationCardType = {
   id: number;
@@ -28,8 +28,10 @@ export type CharactersCardType = {
 };
 
 export type ListItemProps = {
+  num: number;
   path: string;
   card: LocationCardType | EpisodeCardType | CharactersCardType;
+  ref?: React.Ref<HTMLAnchorElement> | undefined;
 };
 
 export interface Settings {
@@ -64,4 +66,13 @@ export type UserType = {
 export type SignInProps = {
   newUser: UserType;
   callback: () => void;
+};
+
+export type ErrorBoundaryProps = { children: ReactNode };
+export type ErrorBoundaryStateType = { hasError: boolean };
+
+export type UseInfinityScrollPropsType = {
+  isLoading: boolean;
+  hasMore: boolean;
+  setPageNumber: React.Dispatch<React.SetStateAction<number>>;
 };
