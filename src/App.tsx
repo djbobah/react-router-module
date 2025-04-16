@@ -1,20 +1,23 @@
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import { Home } from "./pages/Home";
-import { Characters } from "./pages/Characters";
-import { Episodes } from "./pages/Episodes";
-import { Locations } from "./pages/Locations";
-import { CharacterCardDetail } from "./components/CharacterCardDetail";
-import { LocationCardDetail } from "./components/LocationCardDetail";
-import { EpisodeCardDetail } from "./components/EpisodeCardDetail";
 import { NotFound } from "./components/404";
 import { Signin } from "./components/Signin";
 import { FormEvent } from "react";
 import { DataSigninType } from "./types";
 import { useAuth } from "./context/AuthProvider";
 import { PrivateRoute } from "./components/PrivateRoute";
+import { useLazyImports } from "./hooks/useLazyImports";
 
 function App() {
+  const {
+    Characters,
+    CharacterCardDetail,
+    Locations,
+    LocationCardDetail,
+    Episodes,
+    EpisodeCardDetail,
+  } = useLazyImports();
   const auth = useAuth();
   const navigate = useNavigate();
   const location = useLocation();

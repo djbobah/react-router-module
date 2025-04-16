@@ -1,10 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
-import Data from "../data/episode.json";
 
 import { EpisodeCardType } from "../types";
 import { useEffect, useState } from "react";
+import { useData } from "../context/DataProvider";
 
 export const EpisodeCardDetail = () => {
+  const { episodes } = useData();
   const [card, setCard] = useState<EpisodeCardType>();
   const navigate = useNavigate();
   const params = useParams();
@@ -14,7 +15,8 @@ export const EpisodeCardDetail = () => {
   };
 
   useEffect(() => {
-    setCard(Data.filter((card) => card.id === Number(params.id))[0]);
+    episodes &&
+      setCard(episodes.filter((card) => card.id === Number(params.id))[0]);
   }, []);
   return (
     <div className="wrapper">
