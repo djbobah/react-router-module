@@ -2,12 +2,12 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import { Home } from "./pages/Home";
 import { NotFound } from "./components/404";
-import { Signin } from "./components/Signin";
 import { FormEvent } from "react";
 import { DataSigninType } from "./types";
 import { useAuth } from "./context/AuthProvider";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { useLazyImports } from "./hooks/useLazyImports";
+import { Login } from "./components/Login";
 
 function App() {
   const {
@@ -93,7 +93,7 @@ function App() {
           />
           <Route
             path="/login"
-            element={<Signin handleSubmit={handleSigninSubmit} />}
+            element={<Login handleSubmit={handleSigninSubmit} />}
           />
 
           <Route path="*" element={<NotFound />} />

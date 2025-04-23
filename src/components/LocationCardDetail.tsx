@@ -2,6 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { LocationCardType } from "../types";
 import { useEffect, useState } from "react";
 import { useData } from "../context/DataProvider";
+import { Button, Card, Divider, Grid, Text, Title } from "@mantine/core";
+import { IconArrowLeft } from "@tabler/icons-react";
 
 export const LocationCardDetail = () => {
   const { locations } = useData();
@@ -20,27 +22,44 @@ export const LocationCardDetail = () => {
   }, []);
 
   return (
-    <div className="wrapper">
-      <button
-        style={{ padding: "5px" }}
-        onClick={handleClick}
-      >{`<- Назад`}</button>
+    <>
       {card && (
-        <div className="card-wrapper">
-          <h2>{card.name}</h2>
-          <hr style={{ width: "95%" }} />
-          <div className="card-wrapper_parametrs">
-            <span className="card-wrapper_parametrs__name">Тип:</span>
-            <span className="card-wrapper_parametrs__value">{card.type}</span>
-          </div>
-          <div className="card-wrapper_parametrs">
-            <span className="card-wrapper_parametrs__name">Измерение:</span>
-            <span className="card-wrapper_parametrs__value">
-              {card.dimension}
-            </span>
-          </div>
-        </div>
+        <Card shadow="sm" padding="sm" radius="md" mt={30} withBorder>
+          <Button
+            color="blue"
+            fullWidth
+            mt={10}
+            radius="md"
+            onClick={handleClick}
+            leftSection={<IconArrowLeft size={14} />}
+          >
+            Назад
+          </Button>
+
+          <Title order={3} mt="lg">
+            {card.name}
+          </Title>
+          <Divider my="md" />
+          <Grid justify="center" mt="md" mb="xs">
+            <Grid.Col span={4}>
+              <Text>Тип:</Text>
+            </Grid.Col>
+            <Grid.Col span={1}></Grid.Col>
+            <Grid.Col span={6}>
+              <Text>{card.type}</Text>
+            </Grid.Col>
+          </Grid>
+          <Grid justify="center" mt="md" mb="xs">
+            <Grid.Col span={4}>
+              <Text>Измерение:</Text>
+            </Grid.Col>
+            <Grid.Col span={1}></Grid.Col>
+            <Grid.Col span={6}>
+              <Text> {card.dimension}</Text>
+            </Grid.Col>
+          </Grid>
+        </Card>
       )}
-    </div>
+    </>
   );
 };

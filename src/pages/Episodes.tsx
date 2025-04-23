@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ListItem } from "../components/ListItem";
 import { useEpisodes } from "../hooks/useEpisodes";
 import { useInfinityScroll } from "../hooks/useInfinityScroll";
+import { Title } from "@mantine/core";
 
 export const Episodes = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -15,7 +16,9 @@ export const Episodes = () => {
 
   return (
     <>
-      <h1>Эпизоды</h1>
+      <Title order={2} mt={30}>
+        Эпизоды
+      </Title>
       {episodes &&
         episodes.map((item, index) => {
           if (episodes.length === index + 1) {

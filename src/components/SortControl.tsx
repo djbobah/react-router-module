@@ -1,3 +1,5 @@
+import { Button } from "@mantine/core";
+import { IconArrowDown } from "@tabler/icons-react";
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -18,10 +20,11 @@ export const SortControl = (props: SortControlsProps) => {
     setSort(sort === "asc" ? "desc" : "asc");
   };
   return (
-    <div>
-      <button onClick={handleSearchClick}>{`Сортировка ${
-        sort === "asc" ? "по возрастанию" : "по убыванию"
-      }`}</button>
-    </div>
+    <Button
+      onClick={handleSearchClick}
+      rightSection={<IconArrowDown size={14} />}
+    >{`Сортировка ${
+      sort === "asc" ? "по возрастанию" : "по убыванию"
+    }`}</Button>
   );
 };
