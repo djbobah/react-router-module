@@ -1,0 +1,1 @@
+export { CharacterCardDetail } from "./CharacterCardDetail";
