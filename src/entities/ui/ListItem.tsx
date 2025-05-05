@@ -8,7 +8,7 @@ export const ListItem = (props: ListItemProps) => {
 
   return (
     <Link ref={ref} to={path} className="list-link">
-      <Container h={50} mt="md" w={600} className="list-item">
+      <Container h={50} mt="md" size="" className="list-item">
         {num}
         <span>{card.name}</span>
         <span>{LocalDate(card.created)}</span>
